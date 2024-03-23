@@ -75,3 +75,37 @@ components:
       sourceMapping: /projects
     name: python
 ```
+
+## Configure a Pod to Use a Volume for Storage
+
+A Container's file system lives only as long as the Container does. So when a Container terminates and restarts, filesystem changes are lost. For more consistent storage that is independent of the Container, you can use a Volume. (source)[https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/]
+
+```
+# search for container image to use
+podman search --filter=is-official redis 
+
+# create a pod with one container with volume type of emptyDir
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  containers:
+  - name: redis
+    image: redis
+    volumeMounts:
+    - name: redis-storage
+      mountPath: /data/redis
+  volumes:
+  - name: redis-storage
+    emptyDir: {}
+
+# create the pod in the namespace of your choosing
+oc apply -f https://k8s.io/examples/pods/storage/redis.yaml -n devspaces
+
+
+
+
+
+
+```
