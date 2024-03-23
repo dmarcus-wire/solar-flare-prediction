@@ -36,6 +36,8 @@ apply_firmly demos/rhods-nvidia-gpu-autoscale
 
 ## Minio Object Storage
 
+MinIO is a high performance, distributed object storage system. It is software-defined, runs on industry standard hardware and is 100% open source with the dominant license being GNU AGPL v3. (source)[https://min.io/product/overview]
+
 From the Web Terminal
 
 ```
@@ -44,6 +46,14 @@ oc apply -k components/configs/kustomized/minio/overlays/with-namespace-known-pa
 ```
 
 ## Create a devfile.yaml
+
+Devfiles are yaml text files used for development environment customization. Use them to configure a devfile to suit your specific needs and share the customized devfile across multiple workspaces to ensure identical user experience and build, run, and deploy behaviours across your team.
+
+- Reduce the gap between development and deployment
+- Find available devfile stacks or samples in a devfile registry
+- Produce consistent build and run behaviors
+
+see (source)[https://devfile.io/docs/2.1.0/benefits-of-devfile] and (Red Hat Dev Spaces)[https://access.redhat.com/documentation/en-us/red_hat_openshift_dev_spaces/3.12/html/user_guide/devfile-introduction].
 
 ```
 schemaVersion: 2.2.0
@@ -78,7 +88,9 @@ components:
 
 ## Create a Pod to Use a Volume for Storage
 
-A Container's file system lives only as long as the Container does. So when a Container terminates and restarts, filesystem changes are lost. For more consistent storage that is independent of the Container, you can use a Volume. (source)[https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/]
+A Container's file system lives only as long as the Container does. So when a Container terminates and restarts, filesystem changes are lost. For more consistent storage that is independent of the Container, you can use a Volume. (source)[https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/].
+
+For persistent storage in a pod see (source)[https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/]
 
 ```
 # search for container image to use
@@ -132,5 +144,5 @@ wait
 
 # check files (1138 count)
 ls -l . | wc -l
-
 ```
+
