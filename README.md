@@ -76,7 +76,7 @@ components:
     name: python
 ```
 
-## Configure a Pod to Use a Volume for Storage
+## Create a Pod to Use a Volume for Storage
 
 A Container's file system lives only as long as the Container does. So when a Container terminates and restarts, filesystem changes are lost. For more consistent storage that is independent of the Container, you can use a Volume. (source)[https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/]
 
@@ -95,17 +95,42 @@ spec:
     image: redis
     volumeMounts:
     - name: redis-storage
-      mountPath: /data/redis
+      mountPath: /data/
   volumes:
   - name: redis-storage
     emptyDir: {}
 
-# create the pod in the namespace of your choosing
-oc apply -f https://k8s.io/examples/pods/storage/redis.yaml -n devspaces
+# create the pod in a namespace 
+oc apply -f https://k8s.io/examples/pods/storage/redis.yaml -n <enter your namespace>
 
+# monitor the deployment 
+oc get pod redis --watch
 
+# in another terminal, get a shell to the running Container
+exec -it redis -- /bin/bash
+```
 
+## Copying local file to the Container
 
+Support for copying local files to or from a container is built into the `oc` CLI. You MUST install `rysnc` on the client. (source)[https://docs.openshift.com/container-platform/4.14/nodes/containers/nodes-containers-copying-files.html]
 
+```
+# To copy a local directory to a pod directory
+# oc rsync <local-dir> <pod-name>:/<remote-dir> -c <container-name>
+oc rsync ~/Downloads/ redis:/data
+
+# connect to the pod container
+# oc rsh --container CONTAINERNAME POD
+oc rsh --container redis redis
+cd data
+
+# untar the files
+for f in *.tar; do
+  tar xf "$f" &
+done
+wait
+
+# check files (1138 count)
+ls -l . | wc -l
 
 ```
