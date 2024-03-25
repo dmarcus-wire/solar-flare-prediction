@@ -1,5 +1,26 @@
 # Solar Flare Prediction
 
+# Data
+source: National Solar Observatory Global Oscillation Network Group
+requested: https://gong2.nso.edu/archive/patch.pl?menutype=s
+
+Automate data engineering:
+1. grab the data from source
+1. extract the data
+1. validate the data
+1. store the data object storage
+1. presenting the data to IDE
+tools: airflow, tekton, cronjob, kafka/camel
+
+1. s2i build process with custom runtime script
+1. write a cronjob to pull from source
+1. at runtime extract data and load 
+1. apache container to store the data
+
+Distributed training:
+1. train/tune with codeflare on OCP
+
+
 # Setup 
 
 assumptions:
@@ -186,8 +207,20 @@ In this script, the conda shell.bash hook command sets up shell functions for Co
 ```
 #!/bin/bash
 
-# UPDATE YOUR ENV NAME
+# USAGE '$ source ./setup.sh'
+# UPDATE YOUR ENV NAME AND VERSION
 ENV=solar-flare
+VERS=3.12
+
+# install miniconda
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+
+# initialize newly-installed Miniconda
+$PWD/miniconda3/bin/conda init bash
+$PWD/miniconda3/bin/conda init zsh
 
 echo "update conda"
 conda update -n base -c defaults conda -y
@@ -197,14 +230,8 @@ if conda env list | grep -q "\b$ENV/b";then
     echo "conda environment $ENV already exists"
 else
     "create the conda environment $ENV"
-    conda create -n $ENV python=3.12 -y
+    conda create -n $ENV python=$VERS -y
 fi
-
-echo "wait for 2s"
-sleep 2s
-
-echo "initialize the env"
-conda init bash
 
 echo "activate the virtual env"
 eval "$(conda shell.bash hook)"
@@ -215,6 +242,9 @@ conda install -c conda-forge jupyterlab matplotlib opencv boto3 -y
 
 echo "match the python version"
 python -m ipykernel install --user --name=$ENV
+
+echo "default conda env"
+conda info | egrep "conda version|active environment"
 ```
 
 ### Cleanup script
