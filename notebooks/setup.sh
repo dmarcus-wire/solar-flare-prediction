@@ -12,8 +12,8 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 
 # initialize newly-installed Miniconda
-~/miniconda3/bin/conda init bash
-~/miniconda3/bin/conda init zsh
+$PWD/miniconda3/bin/conda init bash
+$PWD/miniconda3/bin/conda init zsh
 
 echo "update conda"
 conda update -n base -c defaults conda -y
