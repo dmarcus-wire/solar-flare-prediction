@@ -1,16 +1,16 @@
 schemaVersion: 2.2.0
 metadata:
-  name: devspaces-gpu
+  name: solar-flare
 attributes:
 #   controller.devfile.io/scc: container-build
   controller.devfile.io/storage-type: ephemeral
-projects:
-  - name: solar-flare-prediction
-    git:
-      remotes:
-        origin: "https://github.com/dmarcus-wire/solar-flare-prediction.git"
-      checkoutFrom:
-        revision: main
+# projects:
+#   - name: devspaces-gpu
+#     git:
+#       remotes:
+#         origin: "https://github.com/dmarcus-wire/solar-flare-prediction.git"
+#       checkoutFrom:
+#         revision: main
 components:
   - attributes:
       container-overrides:
@@ -18,6 +18,12 @@ components:
           limits:
             nvidia.com/gpu: '1'
       controller.devfile.io/merge-contribution: true
+    .vscode/extensions.json: |
+      {
+        "recommendations": [
+          "redhat.java"
+        ]
+      }
     container:
       # image: ghcr.io/redhat-na-ssa/udi-cuda:11.8.0-cudnn8-devel-ubi8
       image: ghcr.io/redhat-na-ssa/udi-cuda:latest
