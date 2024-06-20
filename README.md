@@ -50,15 +50,15 @@ requested: https://gong2.nso.edu/archive/patch.pl?menutype=s
 specific range: https://nispdata.nso.edu/ftp/oQR/zqa/202402/
 
 | Location | Relevant Sensor Data | Product* | Date Range | Data Link | Image Count |
-|---|---|---|---|
-| Learmonth, Australia | [x] | [x] | 2024-02-01:2024-02-29 | | 1325 |
+|----------|----------------------|----------|------------|-----------|-------------|
+| Learmonth, Australia | [x] | [x] | 2024-02-01:2024-02-29 | - | 1325 |
 | Udaipur, India | [x] | [x] | 2024-02-01:2024-02-29 | [data](https://nispdata.nso.edu/ftp/oQR/zqa/202402/) | 938 |
 | El Teide, Spain | [x] | [x] | 2024-02-01:2024-02-29 | [data] | 1336 |
-| Cerro Tololo, Chile | | |
-| Big Bear, California | | |
-| Mauna Loa, Hawaii | | |
-| TE Engineering site, Boulder, Colorado | | |
-| TC Engineering site, Boulder, Colorado | | |
+| Cerro Tololo, Chile | | | | | |
+| Big Bear, California | | | | | |
+| Mauna Loa, Hawaii | | | | | |
+| TE Engineering site, Boulder, Colorado | | | | | |
+| TC Engineering site, Boulder, Colorado | | | | | |
 
 *Product == Average Magnetogram (Zero Point Corrected)
 
