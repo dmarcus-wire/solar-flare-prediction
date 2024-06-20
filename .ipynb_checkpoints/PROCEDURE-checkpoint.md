@@ -58,13 +58,6 @@ oc apply -k components/configs/kustomized/minio/overlays/with-namespace-known-pa
     1. Object Locking: `False`
     1. Quota: `False`
 
-## RHOAI
-
-Create a Project. 
-
-1. Create Project
-1. Git clone repo
-1. Apply cookiecutter data science https://cookiecutter-data-science.drivendata.org/
 
 ## Label Studio
 
