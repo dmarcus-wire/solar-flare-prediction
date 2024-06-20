@@ -1,4 +1,8 @@
-# Recent Events
+# Solar Flare Prediction
+
+Intent for this repo is to configure the Red Hat OpenShift environment and ML tools needed for data scientists to prepare data and code ML system to predict solar flares.
+
+## Recent Events
 
 ![image](./images/x6.37-02-22-2024-solar-flare.jpg)
 
