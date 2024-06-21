@@ -58,6 +58,13 @@ oc apply -k components/configs/kustomized/minio/overlays/with-namespace-known-pa
     1. Object Locking: `False`
     1. Quota: `False`
 
+## RHOAI
+
+Create a Project. 
+
+1. Create Project
+1. Git clone repo
+1. Apply cookiecutter data science https://cookiecutter-data-science.drivendata.org/
 
 ## Label Studio
 
@@ -80,6 +87,17 @@ oc apply -k components/configs/kustomized/label-studio/overlays/default/
     1. Project Name: Solar Flare
     1. Description: Labeling GONG2 data for solar flare prediction
     1. Data Import: Cloud Storage
+1. Settings 
+    1. Cloud Storage
+    1. Storage Type AWS S3
+    1. Storage Title Solar Flare Data
+    1. Bucket Name data
+    1. Region Name us-east-2
+    1. S3 Endpoint http://minio.minio.svc:900
+    1. Access Key ID minioadmin
+    1. Secret Access Key minioadmin
+    1. Treat every bucket as a source file TRUE
+    
 
 ## Create job for ETL
 
