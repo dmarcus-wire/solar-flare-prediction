@@ -1,0 +1,11 @@
+aws
+awscli
+black
+flake8
+isort
+loguru
+pip
+python-dotenv
+tqdm
+typer
+-e .
