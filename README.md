@@ -4,15 +4,19 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-Intent for this repo is to configure and demonstrate a cloud-native environment purpose built for data scientists to tackle the Machine Learning Development Lifecycle (MLDMC) simulating detection and prediction of solar flares.
+Intent:
+
+1. Near-term = Demonstrate an AI Platform Ops from data to delivery.
+1. Long-term = Improve accuracy for detecting and classifying Solar Flares from Magnetograms.
+1. Longer-term = Improve prediction accuracy for Solar Flares by classification type to implement preemptive measure early.
 
 ## Project Organization
 
-```
+```shell
 ├── LICENSE            <- Open-source license if one is chosen
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
-├── PROCEDURE.md       <- The environemnt README for admins to recreate the infra for this project.
+├── PROCEDURE.md       <- The environment README for admins to recreate the infra for this project.
 ├── data
 │   ├── external       <- Data from third party sources.
 │   ├── interim        <- Intermediate data that has been transformed.
