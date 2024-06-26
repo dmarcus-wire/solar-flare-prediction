@@ -10,6 +10,18 @@ Intent:
 1. Long-term = Improve accuracy for detecting and classifying Solar Flares from Magnetograms.
 1. Longer-term = Improve prediction accuracy for Solar Flares by classification type to implement preemptive measure early.
 
+## Concept
+
+![image](./images/concept.png)
+
+## Concept data flow
+
+![image](./images/mlops-concept.png)
+
+## Software Stack
+
+![image](./images/full-stack-selection.png)
+
 ## Project Organization
 
 ```shell
